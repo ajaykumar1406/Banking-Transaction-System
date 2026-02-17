@@ -101,7 +101,7 @@ public class AccountDAO {
 
         try {
             conn = DBConnection.getConnection();
-            conn.setAutoCommit(false); // 🔴 START TRANSACTION
+            conn.setAutoCommit(false); 
 
             // Step 1: Update balance
             PreparedStatement updatePs = conn.prepareStatement(updateSql);
@@ -129,12 +129,12 @@ public class AccountDAO {
             txnPs.setDouble(4, newBalance);
             txnPs.executeUpdate();
 
-            conn.commit(); // ✅ COMMIT
+            conn.commit(); 
             return true;
 
         } catch (Exception e) {
             try {
-                if (conn != null) conn.rollback(); // ❌ ROLLBACK
+                if (conn != null) conn.rollback(); 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -194,12 +194,12 @@ public class AccountDAO {
             txnPs.setDouble(4, newBalance);
             txnPs.executeUpdate();
 
-            conn.commit(); // ✅ COMMIT TRANSACTION
+            conn.commit(); 
             return true;
 
         } catch (Exception e) {
             try {
-                if (conn != null) conn.rollback(); // ❌ ROLLBACK ON ERROR
+                if (conn != null) conn.rollback(); 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

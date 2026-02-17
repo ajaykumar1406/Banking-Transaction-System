@@ -103,7 +103,7 @@ public class Main {
                     System.out.print("Enter amount to deposit: ");
                     double dep = sc.nextDouble();
 
-                    if (service.deposit(account.getAccountNumber(), dep)) {
+                    if (dep>0 && service.deposit(account.getAccountNumber(), dep)) {
                         Account updated =
                                 service.getAccount(account.getAccountNumber());
                         System.out.println("Deposit successful!");
@@ -118,7 +118,7 @@ public class Main {
                     System.out.print("Enter amount to withdraw: ");
                     double wit = sc.nextDouble();
 
-                    if (service.withdraw(account.getAccountNumber(), wit)) {
+                    if (wit>0 && service.withdraw(account.getAccountNumber(), wit)) {
                         Account updated =
                                 service.getAccount(account.getAccountNumber());
                         System.out.println("Withdrawal successful!");
