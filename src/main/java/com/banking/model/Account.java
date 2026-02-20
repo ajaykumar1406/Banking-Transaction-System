@@ -8,11 +8,11 @@ public class Account {
     private String pin;
     private double balance;
 
-    // No-argument constructor
+    
     public Account() {
     }
 
-    // Parameterized constructor
+    
     public Account(String accountNumber, String holderName, String pin, double balance) {
         this.accountNumber = accountNumber;
         this.holderName = holderName;
@@ -20,7 +20,7 @@ public class Account {
         this.balance = balance;
     }
 
-    // Getters and Setters
+    
     public int getAccountId() {
         return accountId;
     }

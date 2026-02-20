@@ -17,11 +17,11 @@ public class Main {
         System.out.println("2. Login");
         System.out.print("Enter your choice: ");
         int firstChoice = sc.nextInt();
-        sc.nextLine(); // consume newline
+        sc.nextLine(); 
 
         Account account = null;
 
-        // 🆕 CREATE ACCOUNT
+        
         if (firstChoice == 1) {
 
             System.out.print("Enter Account Number: ");
@@ -51,7 +51,7 @@ public class Main {
             account = service.login(accNo, pin);
         }
 
-        // 🔐 LOGIN
+      
         else if (firstChoice == 2) {
 
             System.out.print("Enter Account Number: ");
@@ -78,7 +78,7 @@ public class Main {
 
         int choice;
 
-        // 📋 MAIN MENU
+
         do {
             System.out.println("\n===== MENU =====");
             System.out.println("1. Check Balance");

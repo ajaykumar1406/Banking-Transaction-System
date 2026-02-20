@@ -103,13 +103,13 @@ public class AccountDAO {
             conn = DBConnection.getConnection();
             conn.setAutoCommit(false); 
 
-            // Step 1: Update balance
+            
             PreparedStatement updatePs = conn.prepareStatement(updateSql);
             updatePs.setDouble(1, amount);
             updatePs.setString(2, accountNumber);
             updatePs.executeUpdate();
 
-            // Step 2: Fetch updated balance
+            
             PreparedStatement balPs = conn.prepareStatement(balanceSql);
             balPs.setString(1, accountNumber);
             ResultSet rs = balPs.executeQuery();
@@ -121,7 +121,7 @@ public class AccountDAO {
 
             double newBalance = rs.getDouble("balance");
 
-            // Step 3: Insert transaction record
+            
             PreparedStatement txnPs = conn.prepareStatement(insertTxnSql);
             txnPs.setString(1, accountNumber);
             txnPs.setString(2, "DEPOSIT");
@@ -161,7 +161,7 @@ public class AccountDAO {
             conn = DBConnection.getConnection();
             conn.setAutoCommit(false);
 
-            // Step 1: Check balance
+            
             PreparedStatement checkPs = conn.prepareStatement(checkSql);
             checkPs.setString(1, accountNumber);
             ResultSet rs = checkPs.executeQuery();
@@ -180,13 +180,13 @@ public class AccountDAO {
 
             double newBalance = currentBalance - amount;
 
-            // Step 2: Update balance
+            
             PreparedStatement updatePs = conn.prepareStatement(updateSql);
             updatePs.setDouble(1, amount);
             updatePs.setString(2, accountNumber);
             updatePs.executeUpdate();
 
-            // Step 3: Insert transaction record
+            
             PreparedStatement txnPs = conn.prepareStatement(insertTxnSql);
             txnPs.setString(1, accountNumber);
             txnPs.setString(2, "WITHDRAW");
